@@ -17,9 +17,11 @@ button.connectbutton {
   padding: 1rem;
   border-radius: 0.5rem;
 }
+/*forse va eliminato??? */
 .connected > p {
   color: #00D42A;
 }
+/*forse va eliminato??? */
 .error > p {
   color: red;
 }
@@ -93,6 +95,7 @@ footer {
   height: 2.5rem;
   width: auto;
 }
+/*layout visualizzazione record libri */
 .books-table {
   background-color: #34495E;
   border-radius: 1rem;
