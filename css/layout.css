@@ -1,0 +1,95 @@
+* {
+  font-family: sans-serif;
+}
+body {
+  margin: 0;
+}
+main {
+  margin: 3rem 10rem;
+}
+section {
+  min-height: 30rem;
+}
+section p {
+  line-height: 1.5rem;
+}
+button.connectbutton {
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+.connected > p {
+  color: #00D42A;
+}
+.error > p {
+  color: red;
+}
+header {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  background-color: #2C8C84;
+}
+.title {
+  margin-left: 3rem;
+}
+.title > h1 {
+  color: white;
+  letter-spacing: 0.25rem;
+}
+nav {
+  display: flex;
+  background-color: #2C8C84;
+}
+.box-login {
+  justify-content: flex-end;
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+ul.nav > li {
+  display: inline;
+  margin: 0.50rem;
+}
+.nav-link {
+padding: 0.25rem 0.50rem;
+text-decoration: none;
+color: rgba(255, 255, 255, 0.7);
+border-radius: 5px;
+font-size: 1.10rem;
+font-weight: 600;
+}
+.nav-link:hover {
+  color: white;
+}
+.nav-link:active {
+  color: white;
+}
+.login {
+  padding: 0.5rem 0.90rem;
+  text-decoration: none;
+  color: #F3AD16;
+  border: 1px solid #F3AD16;
+  border-radius: 5px;
+  font-size: 1.30rem;
+  font-weight: 600;
+}
+.login:hover {
+  background-color: #F3AD16;
+  color: black;
+}
+/* #475050 */
+footer {
+  background-color:#475050;
+  color: white;
+  min-height: 10rem;
+  display: flex;
+  align-items: center;
+}
+.footerstring {
+  margin: 0 auto;
+  text-align: center;
+}
+.sociallogo {
+  width: 2.5rem;
+  height: 2.5rem;
+}
