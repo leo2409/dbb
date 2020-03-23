@@ -16,15 +16,16 @@
             <a class="nav-link" href="index.php">Home</a>
           </li>
           <li>
-            <a class="nav-link" href="addrecord.php">Add record</a>
+            <a class="nav-link" href="bookslist.php">Books list</a>
           </li>
           <li>
-            <a class="nav-link" href="#">Remove</a>
+            <a class="nav-link" href="#">Add book</a>
           </li>
         </ul>
       </nav>
       <div class="box-login">
-        <a class="login" href="#">login</a>
+        <a class="nav-link" href="#">sign in</a>
+        <a class="login" href="#">register</a>
       </div>
     </header>
     <main>

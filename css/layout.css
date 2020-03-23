@@ -90,6 +90,23 @@ footer {
   text-align: center;
 }
 .sociallogo {
-  width: 2.5rem;
   height: 2.5rem;
+  width: auto;
+}
+.books-table {
+  background-color: #34495E;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.books-table > tr {
+
+}
+.books-table th {
+  text-align: left;
+  color: #F3AD16;
+  padding: 1rem;
+}
+.books-table td {
+  color: #fff;
+  padding: 1rem;
 }
