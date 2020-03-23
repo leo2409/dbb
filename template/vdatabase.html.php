@@ -15,6 +15,7 @@
           <form action="delete.php" method="post">
             <input type="hidden" name="ID" value="<?=$row['id_libro'] ?>">
             <input type="submit" value="Delete">
+            <input type="submit" value="Edit" formaction="edit.php">
           </form>
         </td>
       </tr>
