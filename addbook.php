@@ -21,7 +21,7 @@ if (isset($_POST['titolo']) and isset($_POST['prezzo']) and isset($_POST['data']
     }
 }
 ob_start();
-include __DIR__ . '/template/book_edit.html.php';
+include __DIR__ . '/template/database.html.php';
 $output = ob_get_clean();
 include __DIR__ . '/template/layout.html.php';
  ?>
