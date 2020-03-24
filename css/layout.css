@@ -13,9 +13,29 @@ section {
 section p {
   line-height: 1.5rem;
 }
-button.connectbutton {
-  padding: 1rem;
-  border-radius: 0.5rem;
+.input_box {
+  margin: 1rem;
+}
+.input_box label {
+  font-size: 1.1rem;
+}
+.input_box input {
+  font-size: 1.3rem;
+  border: 2px solid grey;
+  display: block;
+  border-radius:5px;
+  padding: 0.5rem 1.25rem;
+}
+.input_modification input {
+  font-size: 1rem;
+  border: 2px solid grey;
+  display: block;
+  border-radius:5px;
+  padding: 0.3rem 1rem;
+}
+.input_box input:focus{
+  outline: none;
+  border-color: #03A9F4;
 }
 /*forse va eliminato??? */
 .connected > p {

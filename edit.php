@@ -4,7 +4,7 @@ try {
   //connessione al database
   $pdo = new PDO('mysql:host=localhost:3335;dbname=dbb;charset=utf8','leo','Natyleo6901');
   $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-  if (isset($_POST['titolo']) and isset($_POST['prezzo']) and isset($_POST['data'])) {
+  if (!empty($_POST['titolo']) and !empty($_POST['prezzo']) and !empty($_POST['data'])) {
     //query update
     $sql =
     'UPDATE dbb.libro SET

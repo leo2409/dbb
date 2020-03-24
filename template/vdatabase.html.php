@@ -11,13 +11,19 @@
         <td><?=$row['titolo'] ?></td>
         <td><?=$row['prezzo'] ?></td>
         <td><?=$row['d_pubblicazione'] ?></td>
-        <td>
-          <form action="delete.php" method="post">
-            <input type="hidden" name="ID" value="<?=$row['id_libro'] ?>">
-            <input type="submit" value="Delete">
-            <input type="submit" value="Edit" formaction="edit.php">
-          </form>
-        </td>
+        <form action="delete.php" method="post">
+          <td>
+            <div class="input_modification">
+              <input type="hidden" name="ID" value="<?=$row['id_libro'] ?>">
+              <input type="submit" value="Delete">
+            </div>
+          </td>
+          <td>
+            <div class="input_modification">
+              <input type="submit" value="Edit" formaction="edit.php">
+            </div>
+          </td>
+        </form>
       </tr>
     <?php endforeach ?>
   </table>

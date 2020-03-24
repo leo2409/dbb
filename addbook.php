@@ -1,6 +1,6 @@
 <?php
 $title = 'bibiolteca: add book';
-if (isset($_POST['titolo']) and isset($_POST['prezzo']) and isset($_POST['data'])) {
+if (!empty($_POST['titolo']) && !empty($_POST['prezzo']) && !empty($_POST['data'])) {
     try {
       //connessione al database
       $pdo = new PDO('mysql:host=localhost:3335;dbname=dbb;charset=utf8','leo','Natyleo6901');
