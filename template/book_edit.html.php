@@ -21,7 +21,15 @@
         </div>
         <div class="input_box">
           <label for="data">Casa Editrice </label>
-          <input type="text" name="editore" value="<?=$book['editore']?>">
+          <select name="editore">
+            <?php foreach ($n_editori as $row): ?>
+              <?php if ( $book['editore'] == $row['nome']): ?>
+                <option value=<?=$row['nome'] ?> selected><?=$row['nome'] ?></option>
+              <?php else: ?>
+                <option value=<?=$row['nome'] ?>><?=$row['nome'] ?></option>
+              <?php endif; ?>
+            <?php endforeach; ?>
+          </select>
         </div>
       </div>
       <input type="hidden" name="ID" value="<?=$book['id_libro']?>">

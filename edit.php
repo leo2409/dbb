@@ -29,6 +29,8 @@ try {
     'SELECT * FROM dbb.libro WHERE id_libro = ' .  $_POST['ID'] . ';';
     $result = $pdo->query($sql);
     $book = $result->fetch();
+    $sql = 'SELECT * FROM dbb.editore';
+    $n_editori = $pdo->query($sql);
     ob_start();
     include __DIR__ . '/template/book_edit.html.php';
     $output = ob_get_clean();

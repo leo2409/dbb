@@ -21,7 +21,11 @@
         </div>
         <div class="input_box">
           <label for="data">Casa Editrice </label>
-          <input type="text" name="editore" placeholder="Casa Editrice">
+          <select name="editore">
+            <?php foreach ($n_editori as $row): ?>
+              <option value=<?=$row['nome'] ?>><?=$row['nome'] ?></option>
+            <?php endforeach ?>
+          </select>
         </div>
       </div>
       <div class="input_box">

@@ -42,14 +42,16 @@ div.grid-form {
   padding: 0.5rem 1.25rem;
   margin-top: 0.3rem;
 }
-.input_modification input {
-  font-size: 1rem;
-  border: 2px solid grey;
+.input_box select {
   display: block;
+  font-size: 1.3rem;
+  border: 2px solid grey;
   border-radius:5px;
-  padding: 0.3rem 1rem;
+  padding: 0.5rem 1.25rem;
+  margin-top: 0.3rem;
+  width: 18.5rem;
 }
-.input_box input:focus{
+.input_box input:focus, .input_box select:focus{
   outline: none;
   border-color: #03a9f4;
 }
