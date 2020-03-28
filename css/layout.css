@@ -13,18 +13,34 @@ section {
 section p {
   line-height: 1.5rem;
 }
+div.grid-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 1rem;
+  justify-items: center;
+  margin: 3rem 0 2rem 0;
+}
+.form {
+  border-radius: 0.5rem;
+  min-width: 50%;
+  max-width: 60%;
+  text-align: center;
+  border: 2px solid grey;
+  padding: 1rem;
+}
 .input_box {
-  margin: 1rem;
+  text-align: center;
 }
 .input_box label {
   font-size: 1.1rem;
 }
 .input_box input {
+  display: block;
   font-size: 1.3rem;
   border: 2px solid grey;
-  display: block;
   border-radius:5px;
   padding: 0.5rem 1.25rem;
+  margin-top: 0.3rem;
 }
 .input_modification input {
   font-size: 1rem;
@@ -35,7 +51,15 @@ section p {
 }
 .input_box input:focus{
   outline: none;
-  border-color: #03A9F4;
+  border-color: #03a9f4;
+}
+.input_box input.submit {
+  margin-bottom: 0.5rem;
+  margin-right: 1rem;
+  margin-left: auto;
+}
+.input_box input.submit:hover {
+  /*inserire */
 }
 /*forse va eliminato??? */
 .connected > p {

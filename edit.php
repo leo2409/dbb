@@ -4,19 +4,23 @@ try {
   //connessione al database
   $pdo = new PDO('mysql:host=localhost:3335;dbname=dbb;charset=utf8','leo','Natyleo6901');
   $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-  if (!empty($_POST['titolo']) and !empty($_POST['prezzo']) and !empty($_POST['data'])) {
+  if (!empty($_POST['titolo']) and !empty($_POST['prezzo']) and !empty($_POST['data']) && !empty($_POST['editore']) && !empty($_POST['autore'])) {
     //query update
     $sql =
     'UPDATE dbb.libro SET
     titolo = :titolo,
     prezzo = :prezzo,
-    d_pubblicazione = :data
+    d_pubblicazione = :data,
+    idautore = :autore,
+    editore = :editore
     WHERE id_libro = :id;';
     $pquery = $pdo->prepare($sql);
     $pquery->bindValue(':titolo', $_POST['titolo']);
     $pquery->bindValue(':prezzo', $_POST['prezzo']);
     $pquery->bindValue(':data', $_POST['data']);
     $pquery->bindValue(':id', $_POST['ID']);
+    $pquery->bindValue(':autore', $_POST['autore']);
+    $pquery->bindValue(':editore', $_POST['editore']);
     $pquery->execute();
     header('location: bookslist.php');
   } else {
