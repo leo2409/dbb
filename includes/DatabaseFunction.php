@@ -26,7 +26,7 @@ function insertBook($pdo,$titolo,$prezzo,$data,$autore,$editore) {
     ':autore' => $autore,
     ':editore'=> $editore,
   ];
-  $query = query($pdo,$sql,$parameters);
+  query($pdo,$sql,$parameters);
 }
 function editBook($pdo,$id,$titolo,$prezzo,$data,$autore,$editore) {
   $sql = 'UPDATE dbb.libro SET titolo = :titolo, prezzo = :prezzo,
@@ -39,7 +39,13 @@ function editBook($pdo,$id,$titolo,$prezzo,$data,$autore,$editore) {
     ':editore'=> $editore,
     ':id'     => $id,
   ];
-  $query = query($pdo,$sql,$parameters);
+  query($pdo,$sql,$parameters);
 }
-
+function deleteBook($pdo,$id) {
+  $sql = 'DELETE FROM dbb.libro WHERE id_libro = :id;';
+  $parameters = [
+    ':id' => $id,
+  ];
+  query($pdo,$sql,$parameters);
+}
  ?>

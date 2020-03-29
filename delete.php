@@ -1,11 +1,9 @@
 <?php
+include_once __DIR__ . '/includes/DatabaseFunction.php';
 try {
   include_once __DIR__ . '/includes/DatabaseConnection.php';
   //cancellazione record
-  $sql = 'DELETE FROM dbb.libro WHERE id_libro = :id';
-  $pquery = $pdo->prepare($sql);
-  $pquery->bindValue(':id',$_POST['ID']);
-  $pquery->execute();
+  deleteBook($pdo,$_POST['ID']);
   //reindirizzo verso booklist
   header('location: bookslist.php');
 } catch (PDOException $e) {
