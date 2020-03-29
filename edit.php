@@ -1,43 +1,34 @@
 <?php
-$title = 'Book Edit';
+include_once __DIR__ . '/includes/DatabaseFunction.php';
 try {
-  //connessione al database
-  $pdo = new PDO('mysql:host=localhost:3335;dbname=dbb;charset=utf8','leo','Natyleo6901');
-  $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-  if (!empty($_POST['titolo']) and !empty($_POST['prezzo']) and !empty($_POST['data']) && !empty($_POST['editore']) && !empty($_POST['autore'])) {
+  include_once __DIR__ . '/includes/DatabaseConnection.php';
+  //controllo form
+  $error = true;
+  $required = array('titolo','prezzo','data','autore','editore');
+  foreach ($required as $value) {
+    if (empty($_POST[$value])) {
+      $error = false;
+    }
+  }
+  if ($error) {
     //query update
-    $sql =
-    'UPDATE dbb.libro SET
-    titolo = :titolo,
-    prezzo = :prezzo,
-    d_pubblicazione = :data,
-    idautore = :autore,
-    editore = :editore
-    WHERE id_libro = :id;';
-    $pquery = $pdo->prepare($sql);
-    $pquery->bindValue(':titolo', $_POST['titolo']);
-    $pquery->bindValue(':prezzo', $_POST['prezzo']);
-    $pquery->bindValue(':data', $_POST['data']);
-    $pquery->bindValue(':id', $_POST['ID']);
-    $pquery->bindValue(':autore', $_POST['autore']);
-    $pquery->bindValue(':editore', $_POST['editore']);
-    $pquery->execute();
+    editBook($pdo,$_POST['ID'],$_POST['titolo'],$_POST['prezzo'],$_POST['data'],
+    $_POST['autore'],$_POST['editore']);
     header('location: bookslist.php');
   } else {
+    $title = 'Book Edit';
     //query select
-    $sql =
-    'SELECT * FROM dbb.libro WHERE id_libro = ' .  $_POST['ID'] . ';';
-    $result = $pdo->query($sql);
-    $book = $result->fetch();
+    $book = getBook($pdo,$_POST['ID']);
     $sql = 'SELECT * FROM dbb.editore';
     $n_editori = $pdo->query($sql);
     ob_start();
-    include __DIR__ . '/template/book_edit.html.php';
+    include __DIR__ . '/templates/edit_form.html.php';
     $output = ob_get_clean();
   }
 } catch (PDOException $e) {
+  $title = 'An error has occurred';
   $output = 'Unable to connect to the database server: <br />' . $e->getMessage() . ' in ' .
   $e->getFile() . ': ' . $e->getLine();
 }
-include __DIR__ . '/template/layout.html.php';
+include __DIR__ . '/layout/layout.html.php';
  ?>

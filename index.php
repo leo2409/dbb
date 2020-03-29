@@ -1,7 +1,7 @@
 <?php
-$title = 'Bibliotaca: homepage';
+$title = 'Home';
 ob_start();
-include __dir__ . '/template/home.html';
+include_once __dir__ . '/templates/home.html';
 $output = ob_get_clean();
-include __dir__ . '/template/layout.html.php';
+include __dir__ . '/layout/layout.html.php';
  ?>
