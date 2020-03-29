@@ -12,15 +12,13 @@ try {
   }
   if ($error) {
     //query update
-    editBook($pdo,$_POST['ID'],$_POST['titolo'],$_POST['prezzo'],$_POST['data'],
-    $_POST['autore'],$_POST['editore']);
+    update($pdo,'dbb.libro','id_libro', ['titolo' => $_POST['titolo'], 'prezzo' => $_POST['prezzo'], 'd_pubblicazione' => $_POST['data'], 'idautore' => $_POST['autore'], 'editore' => $_POST['editore'], 'id_libro' => $_POST['ID']]);
     header('location: bookslist.php');
   } else {
     $title = 'Book Edit';
     //query select
-    $book = getBook($pdo,$_POST['ID']);
-    $sql = 'SELECT * FROM dbb.editore';
-    $n_editori = $pdo->query($sql);
+    $book = findById($pdo,'dbb.libro','id_libro',$_POST['ID']);
+    $n_editori = findAll($pdo,'dbb.editore');
     ob_start();
     include __DIR__ . '/templates/edit_form.html.php';
     $output = ob_get_clean();

@@ -13,8 +13,9 @@ try {
   }
   if ($error) {
     //add record
-    insertBook($pdo,$_POST['titolo'],$_POST['prezzo'],$_POST['data'],$_POST['autore'],
-    $_POST['editore']);
+    insert($pdo,'dbb.libro',['titolo' => $_POST['titolo'], 'prezzo' => $_POST['prezzo'],
+    'd_pubblicazione' => $_POST['data'], 'idautore' => $_POST['autore'],
+    'editore' => $_POST['editore'],]);
     //reindirizzamento a booklist
     header('location: bookslist.php');
   } else {

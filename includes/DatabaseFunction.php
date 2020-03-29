@@ -4,47 +4,42 @@ function query($pdo,$sql,$parameters = []) {
   $stmt->execute($parameters);
   return $stmt;
 }
-function totalBook($pdo) {
-  $sql = 'SELECT * FROM DBB.libro;';
-  $query = query($pdo,$sql);
-  $row = $query->fetch();
-  return $row;
+
+function findAll($pdo,$table) {
+  $result = query($pdo,'SELECT * FROM ' . $table . ';');
+  return $result->fetchAll();
 }
-function getBook($pdo,$id) {
-  $sql = 'SELECT * FROM dbb.libro WHERE id_libro = :id;';
+
+function findById($pdo,$table,$primarykey,$id) {
+  $sql = 'SELECT * FROM ' . $table . ' WHERE ' . $primarykey . ' = :id;';
   $parameters = [':id' => $id ];
   $query = query($pdo,$sql,$parameters);
   return $query->fetch();
 }
-function insertBook($pdo,$titolo,$prezzo,$data,$autore,$editore) {
-  $sql = 'INSERT INTO dbb.libro (titolo,prezzo,d_pubblicazione,idautore,editore) VALUES
-  (:titolo,:prezzo,:data,:autore,:editore);';
-  $parameters = [
-    ':titolo' => $titolo,
-    ':prezzo' => $prezzo,
-    ':data'   => $data,
-    ':autore' => $autore,
-    ':editore'=> $editore,
-  ];
-  query($pdo,$sql,$parameters);
+
+function insert($pdo,$table,$fields) {
+  $sql = 'INSERT INTO ' . $table . ' SET ';
+  foreach ($fields as $key => $value) {
+    $sql .= ' ' . $key . '= :' . $key . ',';
+  }
+  $sql = rtrim($sql,',') . ';';
+  query($pdo,$sql,$fields);
 }
-function editBook($pdo,$id,$titolo,$prezzo,$data,$autore,$editore) {
-  $sql = 'UPDATE dbb.libro SET titolo = :titolo, prezzo = :prezzo,
-  d_pubblicazione = :data, idautore = :autore, editore = :editore WHERE id_libro = :id;';
-  $parameters = [
-    ':titolo' => $titolo,
-    ':prezzo' => $prezzo,
-    ':data'   => $data,
-    ':autore' => $autore,
-    ':editore'=> $editore,
-    ':id'     => $id,
-  ];
-  query($pdo,$sql,$parameters);
+
+function update($pdo,$table,$primarykey,$fields) {
+  $sql = 'UPDATE ' . $table . ' SET ';
+  foreach ($fields as $key => $value) {
+    $sql .= $key . ' = :' . $key . ",";
+  }
+  $sql = rtrim($sql, ',');
+  $sql .= ' WHERE ' . $primarykey . ' = :id_libro;';
+  query($pdo,$sql,$fields);
 }
-function deleteBook($pdo,$id) {
-  $sql = 'DELETE FROM dbb.libro WHERE id_libro = :id;';
+
+function remove($pdo,$table,$primarykey,$id) {
+  $sql = 'DELETE FROM ' . $table . ' WHERE ' . $primarykey . ' = :id;';
   $parameters = [
-    ':id' => $id,
+    'id'   => $id,
   ];
   query($pdo,$sql,$parameters);
 }
