@@ -17,7 +17,7 @@ try {
   } else {
     $title = 'Book Edit';
     //query select
-    $book = findById($pdo,'dbb.libro','id_libro',$_POST['ID']);
+    $book = findById($pdo,'dbb.libro','id_libro',$_POST['id']);
     $n_editori = findAll($pdo,'dbb.editore');
     ob_start();
     include __DIR__ . '/templates/edit_form.html.php';

@@ -43,4 +43,6 @@ function remove($pdo,$table,$primarykey,$id) {
   ];
   query($pdo,$sql,$parameters);
 }
+
+//function formControl implemantation
  ?>

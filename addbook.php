@@ -19,8 +19,7 @@ try {
     //reindirizzamento a booklist
     header('location: bookslist.php');
   } else {
-    $sql = 'SELECT * FROM dbb.editore';
-    $n_editori = $pdo->query($sql);
+    $n_editori = findAll($pdo,'dbb.editore');
     ob_start();
     include __DIR__ . '/templates/add_form.html.php';
     $output = ob_get_clean();

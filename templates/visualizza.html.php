@@ -14,12 +14,12 @@
         <form action="delete.php" method="post">
           <td>
             <div class="input_modification">
-              <input type="submit" value="Edit" formaction="edit.php">
+              <input type="submit" value="Edit" formaction="save.php">
             </div>
           </td>
           <td>
             <div class="input_modification">
-              <input type="hidden" name="ID" value="<?=$row['id_libro'] ?>">
+              <input type="hidden" name="id" value="<?=$row['id_libro'] ?>">
               <input type="submit" value="Delete">
             </div>
           </td>

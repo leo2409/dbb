@@ -28,13 +28,13 @@ div.grid-form {
   border: 2px solid grey;
   padding: 1rem;
 }
-.input_box {
+.input-box {
   text-align: center;
 }
-.input_box label {
+.input-box label {
   font-size: 1.1rem;
 }
-.input_box input {
+.input-box input {
   display: block;
   font-size: 1.3rem;
   border: 2px solid grey;
@@ -42,7 +42,7 @@ div.grid-form {
   padding: 0.5rem 1.25rem;
   margin-top: 0.3rem;
 }
-.input_box select {
+.input-box select {
   display: block;
   font-size: 1.3rem;
   border: 2px solid grey;
@@ -51,16 +51,16 @@ div.grid-form {
   margin-top: 0.3rem;
   width: 18.5rem;
 }
-.input_box input:focus, .input_box select:focus{
+.input-box input:focus, .input_box select:focus{
   outline: none;
   border-color: #03a9f4;
 }
-.input_box input.submit {
+.input-box input.submit {
   margin-bottom: 0.5rem;
   margin-right: 1rem;
   margin-left: auto;
 }
-.input_box input.submit:hover {
+.input-box input.submit:hover {
   /*inserire */
 }
 /*forse va eliminato??? */

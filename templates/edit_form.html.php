@@ -32,7 +32,7 @@
           </select>
         </div>
       </div>
-      <input type="hidden" name="ID" value="<?=$book['id_libro']?>">
+      <input type="hidden" name="id" value="<?=$book['id_libro']?>">
       <div class="input_box">
         <input class="submit" type="submit" value="Modifica">
       </div>

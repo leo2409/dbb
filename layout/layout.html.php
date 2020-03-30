@@ -19,7 +19,7 @@
             <a class="nav-link" href="bookslist.php">Books list</a>
           </li>
           <li>
-            <a class="nav-link" href="addbook.php">Add book</a>
+            <a class="nav-link" href="save.php">Add book</a>
           </li>
         </ul>
       </nav>
