@@ -4,43 +4,47 @@
     <form action="" method="post">
       <div class="grid-form">
         <!-- Titolo -->
-        <div class="input_box">
+        <div class="input-box">
           <label for="titolo">Titolo </label>
-          <input type="text" name="titolo" value="<?=$book['titolo'] ?? '' ?>">
+          <input type="text" name="book[titolo]" value="<?=$book['titolo'] ?? '' ?>">
         </div>
         <!-- Prezzo -->
-        <div class="input_box">
+        <div class="input-box">
           <label for="prezzo">Prezzo </label>
-          <input type="number" name="prezzo" value="<?=$book['prezzo'] ?? '' ?>">
+          <input type="number" name="book[prezzo]" value="<?=$book['prezzo'] ?? '' ?>">
         </div>
         <!-- Data di Pubblica -->
-        <div class="input_box">
+        <div class="input-box">
           <label for="data">Data di pubblicazione </label>
-          <input type="text" name="data" value="<?=$book['d_pubblicazione'] ?? '' ?>">
+          <input type="text" name="book[d_pubblicazione]" value="<?=$book['d_pubblicazione'] ?? '' ?>">
         </div>
         <!-- AUTORE -->
-        <div class="input_box">
+        <div class="input-box">
           <label for="data">Autore </label>
-          <select name="autore">
+          <select name="book[idautore]">
             <?php foreach ($autori as $row): ?>
-              <?php if (empty($book)): ?>
-                <?php if ( $book['autore'] == $row['nome']): ?>
-                  <option value=<?=$row['nome'] ?> selected><?=$row['nome'] ?></option>
+              <?php if (!empty($book['titolo'])): ?>
+                <?php if ( $book['idautore'] == $row['idautore']): ?>
+                  <option value=<?=$row['idautore'] ?> selected><?=$row['idautore'] ?></option>
+                <?php else: ?>
+                  <option value=<?=$row['idautore'] ?>><?=$row['idautore'] ?></option>
                 <?php endif; ?>
               <?php else: ?>
-                <option value=<?=$row['nome'] ?>><?=$row['nome'] ?></option>
+                <option value=<?=$row['idautore'] ?>><?=$row['idautore'] ?></option>
               <?php endif; ?>
             <?php endforeach; ?>
           </select>
         </div>
         <!-- Casa editrice -->
-        <div class="input_box">
+        <div class="input-box">
           <label for="data">Casa Editrice </label>
-          <select name="editore">
+          <select name="book[editore]">
             <?php foreach ($editori as $row): ?>
-              <?php if (empty($book)): ?>
+              <?php if (!empty($book['titolo'])): ?>
                 <?php if ( $book['editore'] == $row['nome']): ?>
                   <option value=<?=$row['nome'] ?> selected><?=$row['nome'] ?></option>
+                <?php else: ?>
+                  <option value=<?=$row['nome'] ?>><?=$row['nome'] ?></option>
                 <?php endif; ?>
               <?php else: ?>
                 <option value=<?=$row['nome'] ?>><?=$row['nome'] ?></option>
@@ -50,9 +54,9 @@
         </div>
       </div>
       <!-- ID hidden -->
-      <input type="hidden" name="id" value="<?=$book['id_libro'] ?? '' ?>">
+      <input type="hidden" name="book[id_libro]" value="<?=$book['id_libro'] ?? '' ?>">
       <!-- Button submit -->
-      <div class="input_box">
+      <div class="input-box">
         <input class="submit" type="submit" value="Save">
       </div>
     </form>

@@ -11,7 +11,7 @@
         <td><?=$row['titolo'] ?></td>
         <td><?=$row['prezzo'] ?></td>
         <td><?=$row['d_pubblicazione'] ?></td>
-        <form action="delete.php" method="post">
+        <form action="delete.php" method="get">
           <td>
             <div class="input_modification">
               <input type="submit" value="Edit" formaction="save.php">

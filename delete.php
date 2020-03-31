@@ -1,9 +1,9 @@
 <?php
 include_once __DIR__ . '/includes/DatabaseFunction.php';
+include_once __DIR__ . '/includes/DatabaseConnection.php';
 try {
-  include_once __DIR__ . '/includes/DatabaseConnection.php';
   //cancellazione record
-  remove($pdo,'dbb.libro','id_libro',$_POST['id']);
+  remove($pdo,'dbb.libro','id_libro',$_GET['id']);
   //reindirizzo verso booklist
   header('location: bookslist.php');
 } catch (PDOException $e) {
