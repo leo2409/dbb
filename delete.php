@@ -1,9 +1,10 @@
 <?php
-include_once __DIR__ . '/includes/DatabaseFunction.php';
+include_once __DIR__ . '/classes/DatabaseTable.php';
 include_once __DIR__ . '/includes/DatabaseConnection.php';
+$bookTable = new DatabaseTable($pdo, 'dbb.libro', 'id_libro');
 try {
   //cancellazione record
-  remove($pdo,'dbb.libro','id_libro',$_GET['id']);
+  $bookTable->remove($_GET['id']);
   //reindirizzo verso booklist
   header('location: bookslist.php');
 } catch (PDOException $e) {

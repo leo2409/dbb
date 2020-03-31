@@ -1,10 +1,11 @@
 <?php
-include_once __DIR__ . '/includes/DatabaseFunction.php';
+include_once __DIR__ . '/classes/DatabaseTable.php';
+include_once __DIR__ . '/includes/DatabaseConnection.php';
 $title = "Booklist";
+$bookTable = new DatabaseTable($pdo, 'dbb.libro', 'id_libro');
 try {
-  include_once __DIR__ . '/includes/DatabaseConnection.php';
   //esecuzione query
-  $result = findAll($pdo,'dbb.libro');
+  $result = $bookTable->findAll();
   ob_start();
   include __DIR__ . '/templates/visualizza.html.php';
   $output = ob_get_clean();

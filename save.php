@@ -1,18 +1,21 @@
 <?php
-include_once __DIR__ . '/includes/DatabaseFunction.php';
+include_once __DIR__ . '/classes/DatabaseTable.php';
 include_once __DIR__ . '/includes/DatabaseConnection.php';
+$bookTable = new DatabaseTable($pdo, 'dbb.libro', 'id_libro');
 try {
     if (isset($_POST['book'])) {
         $fields = $_POST['book'];
-        save($pdo,$fields,'dbb.libro','id_libro');
+        $bookTable->save($fields);
         header('location: bookslist.php');
     } else {
         $title = 'Edit Book';
+        $autorTable = new DatabaseTable($pdo, 'dbb.autore', 'idautore');
+        $editorTable = new DatabaseTable($pdo, 'dbb.editore', 'nome');
         if (isset($_GET['id'])) {
-            $book = findById($pdo,$_GET['id'],'dbb.libro','id_libro');
+            $book = $bookTable->findById($_GET['id']);
         }
-        $autori = findAll($pdo,'dbb.autore');
-        $editori = findAll($pdo,'dbb.editore');
+        $autori = $autorTable->findAll();
+        $editori = $editorTable->findAll();
         ob_start();
         include __DIR__ . '/templates/bookForm.html.php';
         $output = ob_get_clean();
