@@ -11,10 +11,10 @@
         <td><?=$row['titolo'] ?></td>
         <td><?=$row['prezzo'] ?></td>
         <td><?=$row['d_pubblicazione'] ?></td>
-        <form action="index.php?action=delete" method="post">
+        <form action="index.php?route=book/delete" method="post">
           <td>
             <div class="input_modification">
-              <input type="submit" value="Edit" formaction="index.php?action=edit">
+              <input type="submit" value="Edit" formaction="index.php?route=book/edit">
             </div>
           </td>
           <td>

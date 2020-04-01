@@ -16,10 +16,10 @@
             <a class="nav-link" href="index.php">Home</a>
           </li>
           <li>
-            <a class="nav-link" href="index.php?action=list">Books list</a>
+            <a class="nav-link" href="index.php?route=book/list">Books list</a>
           </li>
           <li>
-            <a class="nav-link" href="index.php?action=edit">Add book</a>
+            <a class="nav-link" href="index.php?route=book/edit">Add book</a>
           </li>
         </ul>
       </nav>

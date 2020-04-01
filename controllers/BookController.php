@@ -12,6 +12,7 @@ class BookController {
 
     public function list() {
         $title = "Book list";
+        $books = [];
         $books = $this->booksTable->findAll();
         return [
             'template' => 'books.html.php',
@@ -29,14 +30,14 @@ class BookController {
 
     public function delete() {
         $this->booksTable->remove($_POST['id']);
-        header('location: index.php?action=list');
+        header('location: index.php?route=book/list');
     }
 
     public function edit() {
         if (isset($_POST['book'])) {
             $fields = $_POST['book'];
             $this->booksTable->save($fields);
-            header('location: index.php?action=list');
+            header('location: index.php?route=book/list');
         } else {
             $title = 'Edit Book';
             if (isset($_POST['id'])) {
@@ -45,8 +46,8 @@ class BookController {
             $autori = $this->authorsTable->findAll();
             $editori = $this->editorsTable->findAll();
             return [
-                'template' => 'bookForm.html.php', 
                 'title' => $title, 
+                'template' => 'bookForm.html.php', 
                 'variables' => [
                     'book' => $book ?? NULL, 
                     'autori' => $autori ?? NULL, 
@@ -55,6 +56,5 @@ class BookController {
             ];
         }
     }
-
 }
 ?>
