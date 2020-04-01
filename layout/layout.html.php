@@ -2,8 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title><?=$title?></title>
     <link rel="stylesheet" href="css/layout.css">
+    <title><?=$title?></title>
   </head>
   <body>
     <header>
@@ -16,10 +16,10 @@
             <a class="nav-link" href="index.php">Home</a>
           </li>
           <li>
-            <a class="nav-link" href="bookslist.php">Books list</a>
+            <a class="nav-link" href="index.php?action=list">Books list</a>
           </li>
           <li>
-            <a class="nav-link" href="save.php">Add book</a>
+            <a class="nav-link" href="index.php?action=edit">Add book</a>
           </li>
         </ul>
       </nav>
@@ -29,9 +29,7 @@
       </div>
     </header>
     <main>
-      <?php
-      echo $output;
-      ?>
+      <?=$output?>
     </main>
     <footer>
       <div class="footerstring">

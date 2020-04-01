@@ -1,6 +1,6 @@
 <section>
   <div class="form">
-    <h1><?=$title?></h1>
+    <h1>Libro</h1>
     <form action="" method="post">
       <div class="grid-form">
         <!-- Titolo -->

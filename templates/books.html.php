@@ -6,15 +6,15 @@
       <th>Prezzo</th>
       <th>Pubblicazione</th>
     </tr>
-    <?php foreach ($result as $row): ?>
+    <?php foreach ($books as $row): ?>
       <tr>
         <td><?=$row['titolo'] ?></td>
         <td><?=$row['prezzo'] ?></td>
         <td><?=$row['d_pubblicazione'] ?></td>
-        <form action="delete.php" method="get">
+        <form action="index.php?action=delete" method="post">
           <td>
             <div class="input_modification">
-              <input type="submit" value="Edit" formaction="save.php">
+              <input type="submit" value="Edit" formaction="index.php?action=edit">
             </div>
           </td>
           <td>
