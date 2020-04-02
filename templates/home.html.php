@@ -5,5 +5,5 @@
     Collegati al database per poter aggiungere, modificare e ricercare i libri dela biblioteca. <br>
     il database utilizza mysql e viene gestito in mysql workbench.
   </p>
-  <a href="index.php?route=joke/list" class="login">connect</a>
+  <a href="index.php?route=book/list" class="login">connect</a>
 </section>
