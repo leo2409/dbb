@@ -1,11 +1,13 @@
 <?php
+namespace LFramework;
+
 class DatabaseTable
 {
     private $pdo;
     private $table;
     private $primarykey;
 
-    public function __construct(PDO $pdo,string $table,string $primarykey) {
+    public function __construct(\PDO $pdo,string $table,string $primarykey) {
         $this->pdo = $pdo;
         $this->table = $table;
         $this->primarykey = $primarykey;
@@ -26,7 +28,7 @@ class DatabaseTable
           }
           // INSERT
           $this->insert($record);
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
           // UPDATE
           $this->update($record);
         }

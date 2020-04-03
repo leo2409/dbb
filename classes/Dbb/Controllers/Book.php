@@ -1,10 +1,12 @@
 <?php
-class BookController {
+namespace Dbb\Controllers;
+
+class Book {
     private $booksTable;
     private $authorsTable;
     private $editorsTable;
 
-    public function __construct(DatabaseTable $booksTable, DatabaseTable $authorsTable, DatabaseTable $editorsTable) {
+    public function __construct(\LFramework\DatabaseTable $booksTable, \LFramework\DatabaseTable $authorsTable, \LFramework\DatabaseTable $editorsTable) {
         $this->booksTable = $booksTable;
         $this->authorsTable = $authorsTable;
         $this->editorsTable = $editorsTable;
